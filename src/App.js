@@ -11,14 +11,14 @@ import ProtectedRoutes from './components/HOC/protectedRoutes';
 const App = () => {
   return ( 
     <React.Fragment>
-      {/* <ToastContainer/>
+       <ToastContainer/>
       <Switch>
         <ProtectedRoutes path='/' component={Navbar} exact={true}/>
         <Route path="/login" component={Login}/>
-        <Route path="/register" component={Register} />
+       {/* <Route path="/register" component={Register} />
         <Route path="/logout" component={Logout} />
-        <Redirect from='/' exact to="/navbar"/>
-      </Switch> */}
+        <Redirect from='/' exact to="/navbar"/>*/}
+      </Switch> 
     </React.Fragment> );
 }
  
