@@ -1,12 +1,12 @@
 import React from 'react';
-// import Login from './components/login/login'
-// import {ToastContainer} from 'react-toastify';
-// import Register from './components/register/register';
-// import Navbar from "./components/common/navbar";
-// import {Switch,Route,Redirect} from "react-router-dom";
-// import "react-toastify/dist/ReactToastify.css";
-// import Logout from "./components/logout/logout";
-// import ProtectedRoutes from './components/HOC/protectedRoutes';
+import Login from './components/login/login'
+import {ToastContainer} from 'react-toastify';
+import Register from './components/register/register';
+import Navbar from "./components/common/navbar";
+import {Switch,Route,Redirect} from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import Logout from "./components/logout/logout";
+import ProtectedRoutes from './components/HOC/protectedRoutes';
 
 const App = () => {
   return ( 
