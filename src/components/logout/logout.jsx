@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {Button} from 'antd';
 import './logout.scss';
 const Logout = () => {
-    // localStorage.clear(); /* Clear the data from local storage*/
+    localStorage.clear(); /* Clear the data from local storage*/
    
     return ( <React.Fragment>
 

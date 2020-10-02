@@ -13,11 +13,11 @@ const App = () => {
     <React.Fragment>
       <ToastContainer/>
       <Switch>
-        <ProtectedRoutes path='/' component={Navbar} exact={true}/>
+        {/* <ProtectedRoutes path='/' component={Navbar} exact={true}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register} />
-        {/* <Route path="/logout" component={Logout} /> */}
-        <Redirect from='/' exact to="/navbar"/>
+        <Route path="/logout" component={Logout} />
+        <Redirect from='/' exact to="/navbar"/> */}
       </Switch>
     </React.Fragment> );
 }
