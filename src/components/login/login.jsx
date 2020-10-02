@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import {toast} from 'react-toastify';
-import {Link, Redirect} from "react-router-dom"
+import {Link} from "react-router-dom"
 import "./login.scss";
 
 // React Toastify Error 
@@ -13,15 +13,17 @@ const error=()=>{
 // Login Component Start from here 
 const Login = (props) => {
   const onFinish = (values) => {
-    let entry=localStorage.getItem('values');   {/*  Fetching data from local storage */}
+    let entry=localStorage.getItem('values');   /*  Fetching data from local storage */
     let entryJson=JSON.parse(entry);
 
     let storageUsername=entryJson.email;
     let storagePassword=entryJson.password;
 
 // Validate registered User 
-    {values.username===storageUsername && values.password===storagePassword ? localStorage.setItem('auhenticate',true): error();}
-    {values.username===storageUsername && values.password===storagePassword && props.history.push('/')}
+  
+      values.username===storageUsername && values.password===storagePassword ? localStorage.setItem('auhenticate',true): error();
+    
+    values.username===storageUsername && values.password===storagePassword && props.history.push('/')
     
 
     }
@@ -68,7 +70,7 @@ const Login = (props) => {
         <Checkbox >Remember me</Checkbox>
       </Form.Item>
 
-      <a className="login-form-forgot" href="">
+      <a className="login-form-forgot" href="/">
         Forgot password
       </a>
     </Form.Item>
