@@ -15,9 +15,9 @@ const App = () => {
       <Switch>
         <ProtectedRoutes path='/' component={Navbar} exact={true}/>
         <Route path="/login" component={Login}/>
-       {/* <Route path="/register" component={Register} />
+        <Route path="/register" component={Register} />
         <Route path="/logout" component={Logout} />
-        <Redirect from='/' exact to="/navbar"/>*/}
+        <Redirect from='/' exact to="/navbar"/>
       </Switch> 
     </React.Fragment> );
 }
