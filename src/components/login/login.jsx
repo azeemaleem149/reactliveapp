@@ -76,7 +76,6 @@ const Login = (props) => {
     </Form.Item>
     <Form.Item>
       <Button type="primary" htmlType="submit" className="login-form-button">
-      {/* {authenticateValue&&<Redirect to='/'/>} */}
        Log in
       </Button>
       Or <Link to="./register">register now!</Link>

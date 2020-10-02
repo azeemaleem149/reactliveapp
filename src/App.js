@@ -25,7 +25,7 @@ const App = () => {
           return <Navbar {...props}/>;
         }}/> */}
         <ProtectedRoutes path='/' component={Navbar} exact={true}/>
-        <Route path="/login" component={Login}/>
+        {/* <Route path="/login" component={Login}/> */}
         <Route path="/register" component={Register} />
         <Route path="/logout" component={Logout} />
         <Redirect from='/' exact to="/navbar"/>
