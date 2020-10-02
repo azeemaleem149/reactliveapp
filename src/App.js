@@ -13,21 +13,10 @@ const App = () => {
     <React.Fragment>
       <ToastContainer/>
       <Switch>
-        {/* { this.state.user && (
-          <Route path="/" component={Navbar} exact/>
-          )}
-        { !this.state.user && (
-          <Redirect to='/register' component={Register}/>)
-        } */}
-        {/* <Route path="/"
-        render={props=>{
-          if(!user) return <Redirect to="/login"/>
-          return <Navbar {...props}/>;
-        }}/> */}
         <ProtectedRoutes path='/' component={Navbar} exact={true}/>
         <Route path="/login" component={Login}/>
-        {/* <Route path="/register" component={Register} /> */}
-        <Route path="/logout" component={Logout} />
+        <Route path="/register" component={Register} />
+        {/* <Route path="/logout" component={Logout} /> */}
         <Redirect from='/' exact to="/navbar"/>
       </Switch>
     </React.Fragment> );
