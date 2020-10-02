@@ -29,7 +29,6 @@ const App = () => {
         <Route path="/register" component={Register} />
         <Route path="/logout" component={Logout} />
         <Redirect from='/' exact to="/navbar"/>
-//       <Route component={Error}/>
       </Switch>
     </React.Fragment> );
 }

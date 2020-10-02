@@ -15,7 +15,7 @@ const Navbar = () => {
     <div>
   <Layout className="layout">
 
-    {/* Header Area start from here  */}
+    {/* Header Area start from here   */}
     <Header>
       <div className="logo" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>

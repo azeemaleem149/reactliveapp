@@ -48,19 +48,19 @@ const helloHandeler=()=>{
     const columns = [
         {
           title: 'Name',
-          dataIndex: 'name1',
+          dataIndex: 'name',
         },
         {
           title: 'Email',
-          dataIndex: 'email1',
+          dataIndex: 'email',
         },
         {
           title: 'Phone',
-          dataIndex: 'phone1',
+          dataIndex: 'phone',
         },
         {
           title: 'Password',
-          dataIndex: 'password1',
+          dataIndex: 'password',
         },
       ];
 
@@ -68,10 +68,10 @@ const helloHandeler=()=>{
       let data = [
         {
           key: '1',
-          name1: name,
-          email1: email,
-          phone1: phone,
-          password1: password,
+          name,
+          email,
+          phone,
+          password,
         },
       ];
       
