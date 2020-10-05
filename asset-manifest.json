@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/reactliveapp/static/css/main.b7aae3ab.chunk.css",
-    "main.js": "/reactliveapp/static/js/main.cd4d0048.chunk.js",
-    "main.js.map": "/reactliveapp/static/js/main.cd4d0048.chunk.js.map",
+    "main.js": "/reactliveapp/static/js/main.c36d0d45.chunk.js",
+    "main.js.map": "/reactliveapp/static/js/main.c36d0d45.chunk.js.map",
     "runtime-main.js": "/reactliveapp/static/js/runtime-main.8f2ebb0d.js",
     "runtime-main.js.map": "/reactliveapp/static/js/runtime-main.8f2ebb0d.js.map",
     "static/css/2.04d85060.chunk.css": "/reactliveapp/static/css/2.04d85060.chunk.css",
     "static/js/2.dc8e1262.chunk.js": "/reactliveapp/static/js/2.dc8e1262.chunk.js",
     "static/js/2.dc8e1262.chunk.js.map": "/reactliveapp/static/js/2.dc8e1262.chunk.js.map",
     "index.html": "/reactliveapp/index.html",
-    "precache-manifest.3875d7758ad4f476ea15d048e53eed8c.js": "/reactliveapp/precache-manifest.3875d7758ad4f476ea15d048e53eed8c.js",
+    "precache-manifest.03648368a27e98044ba0e1b432896754.js": "/reactliveapp/precache-manifest.03648368a27e98044ba0e1b432896754.js",
     "service-worker.js": "/reactliveapp/service-worker.js",
     "static/css/2.04d85060.chunk.css.map": "/reactliveapp/static/css/2.04d85060.chunk.css.map",
     "static/css/main.b7aae3ab.chunk.css.map": "/reactliveapp/static/css/main.b7aae3ab.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.04d85060.chunk.css",
     "static/js/2.dc8e1262.chunk.js",
     "static/css/main.b7aae3ab.chunk.css",
-    "static/js/main.cd4d0048.chunk.js"
+    "static/js/main.c36d0d45.chunk.js"
   ]
 }
