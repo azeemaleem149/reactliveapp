@@ -9,7 +9,7 @@ import { BrowserRouter} from 'react-router-dom';
 
 ReactDOM.render(
    <React.StrictMode>
-    <BrowserRouter basename="/reactliveapp">
+    <BrowserRouter basename="/src">
        <App />
     </BrowserRouter>
   </React.StrictMode>, 
