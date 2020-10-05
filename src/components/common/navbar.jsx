@@ -29,7 +29,7 @@ const error=()=> {
     <Header>
       <div className="logo" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-      <Menu.Item key="1" style={{color:'white',fontWeight:'700', fontSize:'20px'}}>Azeem Aleem</Menu.Item>
+    <Menu.Item key="1" style={{color:'white',fontWeight:'700', fontSize:'20px'}}>{mName1.nickname}</Menu.Item>
       <Menu.Item key="2"><Link to="./">Home</Link></Menu.Item>
       <Menu.Item key="3" onClick={error}> Login</Menu.Item>
       <Menu.Item key="4" onClick={error}>Register</Menu.Item>
@@ -50,7 +50,7 @@ const error=()=> {
     </div>
     </Content>
     {/* Footer Area   */}
-    <Footer style={{ textAlign: 'center' }}>©2020 Developed by Azeem Aleem </Footer>
+    <Footer style={{ textAlign: 'center' }}>©2020 Developed by {mName1.nickname}</Footer>
   </Layout>
     </div>
      );
