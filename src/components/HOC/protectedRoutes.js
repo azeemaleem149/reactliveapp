@@ -9,7 +9,7 @@ class ProtectedRoutes extends Component {
         const user=localStorage.getItem('auhenticate');
 
 // Transform the component and return back 
-        return user?( <Component1/> ):(<Redirect to={{pathname:'/login'}}/>
+        return user?( <Component1/> ):(<Redirect to={{pathname:'/register'}}/>
         );
     }
 }
