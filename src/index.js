@@ -3,10 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
-import Navbar from '../src/components/common/navbar';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter,Route} from 'react-router-dom';
+import { BrowserRouter} from 'react-router-dom';
 
 ReactDOM.render(
    <React.StrictMode>
