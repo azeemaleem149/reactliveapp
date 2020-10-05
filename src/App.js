@@ -9,7 +9,6 @@ import Logout from "./components/logout/logout";
 import ProtectedRoutes from './components/HOC/protectedRoutes';
 
 const App = () => {
-  // let authentication=localStorage.getItem('auhentication');
   return ( 
     <React.Fragment>
        <ToastContainer/>
