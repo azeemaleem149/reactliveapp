@@ -50,7 +50,7 @@ const error=()=> {
     </div>
     </Content>
     {/* Footer Area   */}
-    <Footer style={{ textAlign: 'center' }}>©2020 Developed by {mName1.nickname}</Footer>
+    <Footer style={{ textAlign: 'center' }}>©2020 Developed by Azeem Aleem</Footer>
   </Layout>
     </div>
      );
