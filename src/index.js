@@ -9,7 +9,8 @@ import { BrowserRouter} from 'react-router-dom';
 
 ReactDOM.render(
    <React.StrictMode>
-    <BrowserRouter basename="/src">
+    <BrowserRouter basename={window.location.pathname || ''}>
+  <Route exact path="/" component={Index} />
        <App />
     </BrowserRouter>
   </React.StrictMode>, 
