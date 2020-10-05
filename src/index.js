@@ -11,7 +11,6 @@ import { BrowserRouter,Route} from 'react-router-dom';
 ReactDOM.render(
    <React.StrictMode>
     <BrowserRouter basename={window.location.pathname || ''}>
-  <Route exact path="/" component={Navbar} />
        <App />
     </BrowserRouter>
   </React.StrictMode>, 
