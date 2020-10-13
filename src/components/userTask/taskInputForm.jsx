@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input,DatePicker,Select,Form, Button } from 'antd';
+import { Input,DatePicker,Select,Form, Button} from 'antd';
 const { Option } = Select;
 
 const TaskInputForm = (props) => {
@@ -71,7 +71,9 @@ const TaskInputForm = (props) => {
                         },
                     ]}    
                     >
-                    <Select
+                    
+                      <Select
+                  
                         showSearch
                         style={{ width: 200 }}
                         placeholder="Status of Task"
@@ -83,7 +85,15 @@ const TaskInputForm = (props) => {
                             <Option value="Pending">Pending</Option>
                             <Option value="Done">Done</Option>
                             <Option value="Not Started">Not Started yet</Option>
-                    </Select>
+                            
+                      </Select>
+                    
+                        {/* <Select placeholder='Put Status'>
+                            <Option value="Pending">Pending</Option>
+                            <Option value="Done">Done</Option>
+                            <Option value="Not Started">Not Started yet</Option>
+                        </Select> */}
+                      
                     </Form.Item>
     
                     <Form.Item>

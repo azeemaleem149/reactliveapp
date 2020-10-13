@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {Button,Modal} from 'antd';
 import { Table } from 'react-bootstrap';
 import './userTask.scss';
@@ -6,10 +6,16 @@ import TaskInputForm from './taskInputForm';
 
 const UserTask = () => {
 
-  // let savedData=localStorage.getItem('previousData');
-  // let requiredData=JSON.parse(savedData);
 
-    const [visible,setVisible]=useState(false);
+  useEffect(() => {
+    const item=window.localStorage.getItem('previousData');
+    const item1=JSON.parse(item);
+    if(item1){
+      setData1(item1);
+    }
+
+  },[])  
+  const [visible,setVisible]=useState(false);
     const [data1,setData1]=useState([]);
  
     
@@ -29,32 +35,6 @@ const UserTask = () => {
       setData1(tryValue);
       
       }
-      console.log(data1);
-    // const columns = [ 
-    //     {
-    //       title: 'Heading',
-    //       dataIndex: 'heading',
-    //     },
-    //     {
-    //       title: 'Date',
-    //       dataIndex: 'date',
-    //     },
-    //     {
-    //       title: 'Status',
-    //       dataIndex: 'status',
-    //     },
-    //   ];
-
-      
-      
-      // let data = [
-      //   {
-      //     key: '1',
-      //     heading:'',
-      //     date:'',
-      //     status:'',
-      //   },
-      // ];
     return ( 
         <div>
             <div className='addTaskButton'>
@@ -79,7 +59,8 @@ const UserTask = () => {
                   </tr>
                 </thead>
                 <tbody>
-                {data1.map(function(name,key){
+                  
+                        {data1.map(function(name,key){
                         return (<tr key={key}>
                         <td>{name?.heading}</td>
                         <td>{name?.date.toString()}</td>

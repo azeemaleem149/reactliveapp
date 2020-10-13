@@ -31,7 +31,7 @@ const helloHandeler=()=>{
     // Geting Data from Local storage 
     getDetails(); 
   };
-  if (loading) return <BeatLoader style={{display:'flex', marginLeft:'100rem'}}/>
+  if (loading) return <BeatLoader />
 
   const getDetails=()=>{
     let allValues=localStorage.getItem('values');
