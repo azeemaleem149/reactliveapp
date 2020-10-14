@@ -27,12 +27,8 @@ const TaskInputForm = (props) => {
           if(!found){
             sendData(newValues);
           }}
-      if (found){
-        error();
-        if(found){
-          return previousData;
-        }
-      }
+      else error();
+      
 
       };  
 
