@@ -35,6 +35,12 @@ const UserTask = () => {
       setData1(tryValue);
       
       }
+      
+      const deleteFunction=(val)=>{
+        const filteredItems = data1.filter(item => item.heading !== val)
+        setData1(filteredItems);
+        localStorage.setItem('previousData',JSON.stringify(filteredItems));
+      }
     return ( 
         <div>
             <div className='addTaskButton'>
@@ -56,15 +62,17 @@ const UserTask = () => {
                     <th>Heading of Task</th>
                     <th>Date</th>
                     <th>Status</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   
-                        {data1.map(function(name,key){
+                        {data1.map(function(item,key){
                         return (<tr key={key}>
-                        <td>{name?.heading}</td>
-                        <td>{name?.date.toString()}</td>
-                        <td>{name?.status}</td>
+                        <td>{item.heading}</td>
+                        <td>{item.date.toString()}</td>
+                        <td>{item.status}</td>
+                        <td><Button danger onClick={()=>deleteFunction(item.heading)}>Delete</Button></td>
 
                         </tr>);
                       })}
