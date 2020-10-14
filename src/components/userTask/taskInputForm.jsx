@@ -12,9 +12,9 @@ const TaskInputForm = (props) =>{
 
  
   // React Toastify Error 
-  const error=()=>{
-  toast.error ("Choose a different Name");
-}
+//   const error=()=>{
+//   toast.error ("Choose a different Name");
+// }
 
   // Getting All data from user input forms here 
       const onFinish=(values)=>{
@@ -27,7 +27,7 @@ const TaskInputForm = (props) =>{
           if(!found){
             sendData(newValues);
           }}
-      else return( error());
+      else return previousData;
       
 
       };  

@@ -9,9 +9,9 @@ const FooterComponent = () => {
     return ( 
         <div>
             <Layout className="layout">
-                <div className='footerHead'>
-                 <Footer style={{ textAlign: 'center',position:'fixed', width:'100%',zIndex:'100'}} className='footerComp'>©2020 Developed by Azeem Aleem</Footer>
-                 </div>
+                
+                 <Footer style={{ textAlign: 'center',position:'fixed', width:'100%',zIndex:'100'}}>©2020 Developed by Azeem Aleem</Footer>
+             
              </Layout>
         </div>
      );

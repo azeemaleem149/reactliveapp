@@ -20,10 +20,10 @@ const Home = () => {
         <Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
          </Breadcrumb>
-    <div className="site-layout-content">
-    <UserTask/>
+        <div className="site-layout-content">
+        <UserTask/>
 
-    </div>
+        </div>
     </Content>
     <FooterComponent/>
     </Layout>
