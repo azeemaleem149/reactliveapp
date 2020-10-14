@@ -5,16 +5,16 @@ const { Option } = Select;
 
 
 
-  // React Toastify Error 
-const error=()=>{
-  toast.error ("Choose a different Name");
-}
 
 const TaskInputForm = (props) => {
   const [form] = Form.useForm();
 
 
  
+  // React Toastify Error 
+  const error=()=>{
+  toast.error ("Choose a different Name");
+}
 
   // Getting All data from user input forms here 
       const onFinish=(values)=>{
@@ -27,7 +27,7 @@ const TaskInputForm = (props) => {
           if(!found){
             sendData(newValues);
           }}
-      else error();
+      else return error();
       
 
       };  
