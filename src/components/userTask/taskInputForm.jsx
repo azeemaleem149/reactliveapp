@@ -6,7 +6,7 @@ const { Option } = Select;
 
 
 
-const TaskInputForm = (props) => {
+const TaskInputForm = (props) =>{
   const [form] = Form.useForm();
 
 
@@ -27,7 +27,7 @@ const TaskInputForm = (props) => {
           if(!found){
             sendData(newValues);
           }}
-      else return error();
+      else return( error());
       
 
       };  
@@ -111,6 +111,6 @@ const TaskInputForm = (props) => {
         
         </div>
      );
-}
+                        }
  
 export default TaskInputForm;
