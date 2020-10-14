@@ -50,10 +50,10 @@ const UserTask = () => {
             <div className='addTaskButton'>
             <Button type="primary" onClick={showModal}>+ Add Task</Button>
             </div>
-            {data1.length<=0 &&
+            {/* {data1.length<=0 &&
             <p style={{color:'red'}}>No Tasks Available</p>
               }
-            {data1.length>0 &&<strong style={{color:'#1890FF'}}>Total Tasks={data1.length}</strong>}
+            {data1.length>0 &&<strong style={{color:'#1890FF'}}>Total Tasks={data1.length}</strong>} */}
 
             <Modal
                 title="Put Your Task"

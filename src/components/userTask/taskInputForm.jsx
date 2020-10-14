@@ -1,6 +1,5 @@
 import React from 'react';
 import { Input,DatePicker,Select,Form, Button} from 'antd';
-import {toast} from 'react-toastify';
 const { Option } = Select;
 
 
@@ -8,13 +7,6 @@ const { Option } = Select;
 
 const TaskInputForm = (props) =>{
   const [form] = Form.useForm();
-
-
- 
-  // React Toastify Error 
-//   const error=()=>{
-//   toast.error ("Choose a different Name");
-// }
 
   // Getting All data from user input forms here 
       const onFinish=(values)=>{
@@ -87,8 +79,7 @@ const TaskInputForm = (props) =>{
                         style={{ width: 200 }}
                         placeholder="Status of Task"
                         optionFilterProp="children"
-                        filterOption={(input, option) =>
-                        option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0} 
+                        filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0} 
                         >
                             <Option value="Pending">Pending</Option>
                             <Option value="Done">Done</Option>
