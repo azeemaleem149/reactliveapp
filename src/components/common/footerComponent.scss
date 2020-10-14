@@ -1,0 +1,12 @@
+.footerHead{
+    display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .footerComp{
+   
+        height: 50px;
+        flex-shrink: 0;
+        background-color: #134c7d;
+      
+  }
+}

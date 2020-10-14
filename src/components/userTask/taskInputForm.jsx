@@ -1,14 +1,22 @@
 import React from 'react';
 import { Input,DatePicker,Select,Form, Button} from 'antd';
+import {toast} from 'react-toastify';
 const { Option } = Select;
 
+
+
+  // React Toastify Error 
+const error=()=>{
+  toast.error ("Choose a different Name");
+}
+
 const TaskInputForm = (props) => {
-
-
   const [form] = Form.useForm();
 
 
-  
+ 
+
+  // Getting All data from user input forms here 
       const onFinish=(values)=>{
       form.resetFields();
       let newValues=values;
@@ -19,9 +27,16 @@ const TaskInputForm = (props) => {
           if(!found){
             sendData(newValues);
           }}
-      else return previousData;
+      if (found){
+        error();
+        if(found){
+          return previousData;
+        }
+      }
 
       };  
+
+      // Pass User Data to another component state 
       const sendData=(val)=>{
         props.sendData(val);
       }
@@ -29,6 +44,7 @@ const TaskInputForm = (props) => {
 
     return ( 
         <div>
+          {/* Task Input Form Start here  */}
               <Form
                 form={form}
                 name="normal_login"
@@ -39,7 +55,6 @@ const TaskInputForm = (props) => {
             
                 
                 onFinish={onFinish} >
-
                     <Form.Item
                     name="heading"
                     rules={[
@@ -70,30 +85,20 @@ const TaskInputForm = (props) => {
                         message: 'Whats Status of your Task',
                         },
                     ]}    
-                    >
-                    
+                    > 
                       <Select
-                  
                         showSearch
                         style={{ width: 200 }}
                         placeholder="Status of Task"
                         optionFilterProp="children"
                         filterOption={(input, option) =>
-                        option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-                        
+                        option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0} 
                         >
                             <Option value="Pending">Pending</Option>
                             <Option value="Done">Done</Option>
                             <Option value="Not Started">Not Started yet</Option>
                             
                       </Select>
-                    
-                        {/* <Select placeholder='Put Status'>
-                            <Option value="Pending">Pending</Option>
-                            <Option value="Done">Done</Option>
-                            <Option value="Not Started">Not Started yet</Option>
-                        </Select> */}
-                      
                     </Form.Item>
     
                     <Form.Item>
@@ -103,6 +108,9 @@ const TaskInputForm = (props) => {
                     
                     </Form.Item>
                     </Form>
+
+          {/* Task Input Form End here  */}
+
         
         
         </div>

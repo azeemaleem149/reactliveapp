@@ -11,6 +11,8 @@ const {Content} = Layout;
 const Home = () => {
     const [value]=useState('2');
     return ( 
+
+        // All components Rendering here 
         <div id='home'>
         <Layout className="layout">
         <Navbar value={value}/>

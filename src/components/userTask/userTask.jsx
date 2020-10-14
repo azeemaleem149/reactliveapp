@@ -7,6 +7,7 @@ import TaskInputForm from './taskInputForm';
 const UserTask = () => {
 
 
+  // Got Previous Data in state after render the component 
   useEffect(() => {
     const item=window.localStorage.getItem('previousData');
     const item1=JSON.parse(item);
@@ -15,10 +16,12 @@ const UserTask = () => {
     }
 
   },[])  
+  
+  // All states here 
   const [visible,setVisible]=useState(false);
-    const [data1,setData1]=useState([]);
+  const [data1,setData1]=useState([]);
  
-    
+    // Model Box Functions 
     const showModal = () => {
         setVisible(true);
       };
@@ -29,13 +32,15 @@ const UserTask = () => {
           setVisible(false);
 
       }
+
+      // Update state with new Data function 
       const getData=(data)=>{
       let tryValue=data1.slice();
       tryValue.push(data);
       setData1(tryValue);
       
       }
-      
+      // Delete Task function 
       const deleteFunction=(val)=>{
         const filteredItems = data1.filter(item => item.heading !== val)
         setData1(filteredItems);
@@ -46,6 +51,11 @@ const UserTask = () => {
             <div className='addTaskButton'>
             <Button type="primary" onClick={showModal}>+ Add Task</Button>
             </div>
+            {data1.length<=0 &&
+            <p style={{color:'red'}}>No Tasks Available</p>
+              }
+            {data1.length>0 &&<strong style={{color:'#1890FF'}}>Total Tasks={data1.length}</strong>}
+
             <Modal
                 title="Put Your Task"
                 visible={visible}
@@ -54,7 +64,8 @@ const UserTask = () => {
                 >
                 <TaskInputForm action={handler} sendData={getData}/>
             </Modal>
-            {/* <Table columns={columns} dataSource={data1} size="small" /> */}
+        
+        {/* Table component start */}
             <Table striped bordered hover>
                 <thead>
                   <tr>
@@ -67,7 +78,7 @@ const UserTask = () => {
                 </thead>
                 <tbody>
                   
-                        {data1.map(function(item,key){
+                        {data1.map((item,key)=>{
                         return (<tr key={key}>
                         <td>{item.heading}</td>
                         <td>{item.date.toString()}</td>
@@ -78,6 +89,8 @@ const UserTask = () => {
                       })}
                 </tbody>
               </Table>
+        {/* Table component End */}
+
         </div>
      );
 }
