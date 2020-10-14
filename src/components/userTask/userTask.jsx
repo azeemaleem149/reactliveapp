@@ -78,7 +78,7 @@ const UserTask = () => {
                 </thead>
                 <tbody>
                   
-                        {data1.map((item,key)=>{
+                        {data1.map(function(item,key){
                         return (<tr key={key}>
                         <td>{item.heading}</td>
                         <td>{item.date.toString()}</td>
