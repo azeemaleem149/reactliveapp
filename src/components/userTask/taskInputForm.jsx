@@ -1,8 +1,13 @@
 import React from 'react';
 import { Input,DatePicker,Select,Form, Button} from 'antd';
+import {toast} from 'react-toastify';
 const { Option } = Select;
 
 
+// React Toastify Error 
+const error=()=>{
+  toast.error ("Choose another Name");
+}
 
 
 const TaskInputForm = (props) =>{
@@ -19,7 +24,7 @@ const TaskInputForm = (props) =>{
           if(!found){
             sendData(newValues);
           }}
-      else return previousData;
+      else return error();
       
 
       };  
