@@ -8,7 +8,9 @@ const { Option } = Select;
 const error=()=>{
   toast.error ("Choose another Name");
 }
-
+const nameHeading=()=>{
+  toast.success ("Your Task Added Successfully");
+}
 
 const TaskInputForm = (props) =>{
   const [form] = Form.useForm();
@@ -23,6 +25,7 @@ const TaskInputForm = (props) =>{
       localStorage.setItem('previousData',JSON.stringify(previousData.concat(newValues)));
           if(!found){
             sendData(newValues);
+            nameHeading();
           }}
       else return error();
       
@@ -80,7 +83,7 @@ const TaskInputForm = (props) =>{
                     ]}    
                     > 
                       <Select
-                        showSearch
+                      
                         style={{ width: 200 }}
                         placeholder="Status of Task"
                         optionFilterProp="children"
@@ -91,6 +94,8 @@ const TaskInputForm = (props) =>{
                             <Option value="Not Started">Not Started yet</Option>
                             
                       </Select>
+                  
+
                     </Form.Item>
     
                     <Form.Item>

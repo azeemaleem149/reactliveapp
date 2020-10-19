@@ -1,8 +1,13 @@
 import React,{useState,useEffect} from 'react';
 import {Button,Modal} from 'antd';
 import { Table } from 'react-bootstrap';
+import {toast} from 'react-toastify';
 import './userTask.scss';
 import TaskInputForm from './taskInputForm';
+
+const deleteNotify=()=>{
+  toast.info ("Task Deleted Successfully");
+}
 
 const UserTask = () => {
 
@@ -44,16 +49,22 @@ const UserTask = () => {
         const filteredItems = data1.filter(item => item.heading !== val)
         setData1(filteredItems);
         localStorage.setItem('previousData',JSON.stringify(filteredItems));
+        deleteNotify();
       }
     return ( 
         <div>
-            <div className='addTaskButton'>
-            <Button type="primary" onClick={showModal}>+ Add Task</Button>
+            <div className='taskContainer'>
+            {data1.length>0 &&<strong style={{color:'#1890FF'}} className='taskCounter'>Total Tasks={data1.length}</strong>}
+            <Button type="primary" onClick={showModal} className='taskButton'>+ Add Task</Button>
             </div>
+            <div className="taskContainer1">
+            
+            </div>
+            
             {data1.length<=0 &&
-            <p style={{color:'red'}}>No Tasks Available</p>
+            <p className='noTaskTest'>No Tasks Available</p>
               }
-            {data1.length>0 &&<strong style={{color:'#1890FF'}}>Total Tasks={data1.length}</strong>}
+            
 
             <Modal
                 title="Put Your Task"
@@ -65,16 +76,19 @@ const UserTask = () => {
             </Modal>
         
         {/* Table component start */}
+        
             <Table striped bordered hover>
+              
                 <thead>
+                {!data1.length<=0 && 
                   <tr>
-                   
                     <th>Heading of Task</th>
                     <th>Date</th>
                     <th>Status</th>
                     <th>Action</th>
-                  </tr>
+                  </tr>  }
                 </thead>
+              
                 <tbody>
                   
                         {data1.map(function(item,key){
@@ -88,6 +102,7 @@ const UserTask = () => {
                       })}
                 </tbody>
               </Table>
+
         {/* Table component End */}
 
         </div>
