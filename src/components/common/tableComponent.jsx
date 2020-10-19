@@ -7,42 +7,52 @@ import { Table } from 'antd';
 const TableComponent = () => {
 
   // All the state variables here 
-  const [show,setShow]=useState(false);
-  const [loading,setLoading]=useState(false);
-  const [name,setName]=useState("");
-  const [email,setEmail]=useState("");
-  const [phone,setPhone]=useState("");
-  const [password,setPassword]=useState("");
+  // const [show,setShow]=useState(false);
+  // const [loading,setLoading]=useState(false);
+  // const [name,setName]=useState("");
+  // const [email,setEmail]=useState("");
+  // const [phone,setPhone]=useState("");
+  // const [password,setPassword]=useState("");
 
-  useEffect(()=>{
-    if(loading){
-      setTimeout(() => {
-        setLoading(false)
-      }, 1500);
-    }
-  },[loading]);
+//   useEffect(()=>{
+//     if(loading){
+//       setTimeout(() => {
+//         setLoading(false)
+//       }, 1500);
+//     }
+//   },[loading]);
 
-const helloHandeler=()=>{
-    setLoading(!loading);
-    setTimeout(()=>{
-      setLoading(!loading);
-      setShow(!show);
-    },1500);
-    // Geting Data from Local storage 
-    getDetails(); 
-  };
-  if (loading) return(<BeatLoader />) 
+// const helloHandeler=()=>{
+//     setLoading(!loading);
+//     setTimeout(()=>{
+//       setLoading(!loading);
+//       setShow(!show);
+//     },1500);
+//     // Geting Data from Local storage 
+//     getDetails(); 
+//   };
+//   if (loading) return(<BeatLoader />) 
 
-  const getDetails=()=>{
-    let allValues=localStorage.getItem('values');
-    let getValues=JSON.parse(allValues);
-    setName(getValues.nickname);
-    setEmail(getValues.email);
-    setPhone(getValues.phone);
-    setPassword(getValues.password);
+  // const getDetails=()=>{
+  //   let allValues=localStorage.getItem('values');
+  //   let getValues=JSON.parse(allValues);
+  //   setName(getValues.nickname);
+  //   setEmail(getValues.email);
+  //   setPhone(getValues.phone);
+  //   setPassword(getValues.password);
   
 
-  }
+  // }
+
+    let allValues=localStorage.getItem('values');
+    let getValues=JSON.parse(allValues);
+     let name=getValues.nickname;
+    let email=getValues.email;
+    let phone=getValues.phone;
+    let password=getValues.password;
+  
+
+
 
   // Table Column Data 
     const columns = [
@@ -78,7 +88,7 @@ const helloHandeler=()=>{
     return ( 
         <div>
             <Table columns={columns} dataSource={data} size="small" />
-            <Button type="primary" onClick={helloHandeler}>View Details</Button>
+            {/* <Button type="primary" onClick={helloHandeler}>View Details</Button> */}
         </div>
      );
 }

@@ -1,5 +1,16 @@
-.addTaskButton{
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
+.taskContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.noTaskTest {
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  opacity: 0.4;
+  margin-top: 100px;
 }
