@@ -14,7 +14,7 @@ const Home = () => {
         <div id='home'>
         <Layout className="layout">
         <Navbar value={value}/>
-        <Content style={{ padding: '0 50px' }}>
+        <Content style={{ padding: '0 50px',height:'100%' }}>
         <Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
          </Breadcrumb>

@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useContext,useEffect} from 'react';
+import secretContext from "../../myContext";
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import {toast} from 'react-toastify';
@@ -9,21 +10,33 @@ import "./login.scss";
 const error=()=>{
   toast.error ("Please Correct your Information");
 }
+const success=()=>{
+  toast.info ("Welcome to our Platform !");
+}
 
 // Login Component Start from here 
 const Login = (props) => {
-  const onFinish = (values) => {
-    let entry=localStorage.getItem('values');   /*  Fetching data from local storage */
-    let entryJson=JSON.parse(entry);
 
-    let storageUsername=entryJson.email;
-    let storagePassword=entryJson.password;
+  const credentials=useContext(secretContext);
+  
+  useEffect(()=>{
+console.log('i am useEffect',credentials);
+  },[credentials]);
+
+  console.log('i am credentials',credentials);
+
+  const onFinish = (values) => {
+    // let entry=localStorage.getItem('values');   /*  Fetching data from local storage */
+    // let entryJson=JSON.parse(entry);
+
+    let storageUsername=credentials.email;
+    let storagePassword=credentials.password;
 
 // Validate registered User 
   
+
       values.username===storageUsername && values.password===storagePassword ? localStorage.setItem('auhenticate',true): error();
-    
-    values.username===storageUsername && values.password===storagePassword && props.history.push('/')
+      values.username===storageUsername && values.password===storagePassword && props.history.push('/'); success();  //two actions performs on one condition
     
 
     }
