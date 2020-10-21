@@ -1,5 +1,6 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useContext} from 'react';
 import {Button,Modal} from 'antd';
+import {taskData} from '../../myContext';
 import { Table } from 'react-bootstrap';
 import {toast} from 'react-toastify';
 import './userTask.scss';
@@ -11,19 +12,22 @@ const deleteNotify=()=>{
 
 const UserTask = () => {
 
+  // Data is consuming of Context store 
+  const comingData = useContext(taskData);
 
   useEffect(() => {
     const item=window.localStorage.getItem('previousData');
     const item1=JSON.parse(item);
     if(item1){
-      setData1(item1);
+    setData1(item1);
     }
+  },[comingData]);  //context data is updating here before render the component
 
-  },[])  
-  
-  // All states here 
+   // All states here 
   const [visible,setVisible]=useState(false);
   const [data1,setData1]=useState([]);
+
+
  
     // Model Box Functions 
     const showModal = () => {
@@ -37,13 +41,13 @@ const UserTask = () => {
 
       }
 
-      // Update state with new Data function 
-      const getData=(data)=>{
-      let tryValue=data1.slice();
-      tryValue.push(data);
-      setData1(tryValue);
+     // Update state with new incoming Context Data
       
-      }
+      const getData=()=>{
+        let tryValue=data1.slice();
+        tryValue.push(comingData.provideValues);
+        setData1(tryValue);
+        } 
       // Delete Task function 
       const deleteFunction=(val)=>{
         const filteredItems = data1.filter(item => item.heading !== val)
@@ -72,7 +76,8 @@ const UserTask = () => {
                 onCancel={handleCancel}
                 footer={null}
                 >
-                <TaskInputForm action={handler} sendData={getData}/>
+           {/* onLoad function called when the component render. I call this function here because i cant call it with any event so thats why. */}
+                <TaskInputForm action={handler} onLoad={getData}/>
             </Modal>
         
         {/* Table component start */}
@@ -90,7 +95,6 @@ const UserTask = () => {
                 </thead>
               
                 <tbody>
-                  
                         {data1.map(function(item,key){
                         return (<tr key={key}>
                         <td>{item.heading}</td>

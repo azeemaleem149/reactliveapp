@@ -1,5 +1,7 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { Input,DatePicker,Select,Form, Button} from 'antd';
+import {taskData} from '../../myContext';
+
 import {toast} from 'react-toastify';
 const { Option } = Select;
 
@@ -15,6 +17,7 @@ const nameHeading=()=>{
 const TaskInputForm = (props) =>{
   const [form] = Form.useForm();
 
+  const contextData=useContext(taskData);
   // Getting All data from user input forms here 
       const onFinish=(values)=>{
       form.resetFields();
@@ -24,18 +27,18 @@ const TaskInputForm = (props) =>{
       if(!found){
       localStorage.setItem('previousData',JSON.stringify(previousData.concat(newValues)));
           if(!found){
-            sendData(newValues);
+            // sendData(newValues);
             nameHeading();
+            contextData.setprovideValues(newValues);
           }}
       else return error();
-      
-
       };  
 
+
       // Pass User Data to another component state 
-      const sendData=(val)=>{
-        props.sendData(val);
-      }
+      // const sendData=(val)=>{
+      //   props.sendData(val);
+      // }
       
 
     return ( 
@@ -99,7 +102,7 @@ const TaskInputForm = (props) =>{
                     </Form.Item>
     
                     <Form.Item>
-                    <Button type="primary" htmlType="submit" className="login-form-button" onClick={props.action} onChange={props.sendData}>
+                    <Button type="primary" htmlType="submit" className="login-form-button" onClick={props.action}>
                     Add Task
                     </Button>
                     
@@ -113,5 +116,4 @@ const TaskInputForm = (props) =>{
         </div>
      );
                         }
- 
 export default TaskInputForm;

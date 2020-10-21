@@ -1,10 +1,11 @@
-import React,{useState,useEffect} from 'react';
-import {BeatLoader} from 'react-spinners';
-import { Button } from 'antd';
+import React,{useContext} from 'react';
+// import {BeatLoader} from 'react-spinners';
+import secretContext,{taskData} from '../../myContext';
 import { Table } from 'antd';
 
 // Table Components Start from here 
 const TableComponent = () => {
+
 
   // All the state variables here 
   // const [show,setShow]=useState(false);
@@ -44,12 +45,17 @@ const TableComponent = () => {
 
   // }
 
-    let allValues=localStorage.getItem('values');
-    let getValues=JSON.parse(allValues);
-     let name=getValues.nickname;
-    let email=getValues.email;
-    let phone=getValues.phone;
-    let password=getValues.password;
+  const values=useContext(secretContext);
+  const values2=useContext(taskData);
+  console.log('Hi context',values2);
+
+
+    // let allValues=localStorage.getItem('values');
+    // let getValues=JSON.parse(allValues);
+    //  let name=getValues.nickname;
+    // let email=getValues.email;
+    // let phone=getValues.phone;
+    // let password=getValues.password;
   
 
 
@@ -78,10 +84,10 @@ const TableComponent = () => {
       let data = [
         {
           key: '1',
-          name,
-          email,
-          phone,
-          password1: password,
+          name:values.nickname,
+          email:values.email,
+          phone:values.phone,
+          password1: values.password,
         },
       ];
       
