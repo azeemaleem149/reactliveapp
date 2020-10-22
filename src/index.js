@@ -1,16 +1,23 @@
 import 'core-js';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {createStore} from "redux";
+import {Provider} from 'react-redux';
+import rootReducer from "./reducers";
 import 'antd/dist/antd.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter} from 'react-router-dom';
 
+const store=createStore(rootReducer);
+
 ReactDOM.render(
    <React.StrictMode>
     <BrowserRouter basename={window.location.pathname || ''}>
-       <App />
+       <Provider store={store}>
+         <App />
+       </Provider>
     </BrowserRouter>
   </React.StrictMode>, 
   document.getElementById('root')

@@ -1,29 +1,33 @@
 import React,{useState,useEffect} from 'react';
 import {Button,Modal} from 'antd';
 import { Table } from 'react-bootstrap';
+import {connect} from 'react-redux';
 import {toast} from 'react-toastify';
 import './userTask.scss';
 import TaskInputForm from './taskInputForm';
+// import rootReducer from '../../reducers';
 
 const deleteNotify=()=>{
   toast.info ("Task Deleted Successfully");
 }
 
-const UserTask = () => {
-
-
+const UserTask = (props) => {
+  
   useEffect(() => {
     const item=window.localStorage.getItem('previousData');
     const item1=JSON.parse(item);
     if(item1){
       setData1(item1);
     }
-
+    // if(props){
+    // setData1(props)
+    // }
   },[])  
   
   // All states here 
   const [visible,setVisible]=useState(false);
   const [data1,setData1]=useState([]);
+ 
  
     // Model Box Functions 
     const showModal = () => {
@@ -51,6 +55,9 @@ const UserTask = () => {
         localStorage.setItem('previousData',JSON.stringify(filteredItems));
         deleteNotify();
       }
+  
+      console.log(props);
+  
     return ( 
         <div>
             <div className='taskContainer'>
@@ -72,7 +79,7 @@ const UserTask = () => {
                 onCancel={handleCancel}
                 footer={null}
                 >
-                <TaskInputForm action={handler} sendData={getData}/>
+                <TaskInputForm action={handler} sendData={getData} />
             </Modal>
         
         {/* Table component start */}
@@ -108,5 +115,12 @@ const UserTask = () => {
         </div>
      );
 }
+const mapStateToProps=(state)=>{
+  return{
+    heading:state.values.heading,
+    date:state.values.date,
+    status:state.values.status
+  }
+}
  
-export default UserTask;
+export default connect(mapStateToProps) (UserTask);

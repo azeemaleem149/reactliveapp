@@ -27,7 +27,7 @@ const Navbar = (props) => {
     <Header>
       {/* <img src='./'/> */}
       <Menu theme="light" mode="horizontal" defaultSelectedKeys={[props.value]}>
-          <Menu.Item key="2" style={{marginRight:'85%'}}><Link to="./"><img src={logo} className='logo'/></Link></Menu.Item>
+          <Menu.Item key="2" style={{marginRight:'85%'}}><Link to="./"><img src={logo} className='logo' alt='logo'/></Link></Menu.Item>
           {/* <Menu.Item key="1" style={{color:'white',fontWeight:'700', fontSize:'20px',marginRight:'65%'}}><Link to="./">{mName1.nickname}</Link></Menu.Item> */}
           <Dropdown overlay={menu} placement="bottomLeft" arrow>
           <Avatar size="large" icon={<UserOutlined />} />
