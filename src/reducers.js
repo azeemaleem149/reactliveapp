@@ -1,9 +1,13 @@
-import React from 'react';
-const rootReducer = (state,action) => {
-    return ( 
-        <>
-        </>
-     );
+const iState={
+    values:{}
+}
+const rootReducer = (state=iState,action) => {
+   if(action.type==="getValues"){
+       return{
+        values:action.payload
+       }
+   }
+   return state;
 }
  
 export default rootReducer;

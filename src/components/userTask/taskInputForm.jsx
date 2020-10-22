@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input,DatePicker,Select,Form, Button} from 'antd';
+import { connect } from 'react-redux'
 import {toast} from 'react-toastify';
 const { Option } = Select;
 
@@ -13,6 +14,7 @@ const nameHeading=()=>{
 }
 
 const TaskInputForm = (props) =>{
+
   const [form] = Form.useForm();
 
   // Getting All data from user input forms here 
@@ -26,17 +28,17 @@ const TaskInputForm = (props) =>{
           if(!found){
             sendData(newValues);
             nameHeading();
+            props.changeObject(newValues);
+
+            
+            
           }}
       else return error();
-      
-
       };  
-
       // Pass User Data to another component state 
       const sendData=(val)=>{
         props.sendData(val);
       }
-      
 
     return ( 
         <div>
@@ -82,8 +84,7 @@ const TaskInputForm = (props) =>{
                         },
                     ]}    
                     > 
-                      <Select
-                      
+                      <Select                     
                         style={{ width: 200 }}
                         placeholder="Status of Task"
                         optionFilterProp="children"
@@ -94,24 +95,22 @@ const TaskInputForm = (props) =>{
                             <Option value="Not Started">Not Started yet</Option>
                             
                       </Select>
-                  
-
                     </Form.Item>
-    
                     <Form.Item>
                     <Button type="primary" htmlType="submit" className="login-form-button" onClick={props.action} onChange={props.sendData}>
                     Add Task
-                    </Button>
-                    
+                    </Button>                   
                     </Form.Item>
                     </Form>
-
-          {/* Task Input Form End here  */}
-
-        
-        
+          {/* Task Input Form End here  */}  
         </div>
      );
-                        }
+    }
+
+   const mapDispatchToProps=dispatch=>{
+     return{
+       changeObject:(data)=>dispatch({type:'getValues',payload:data})
+     }
+   };
  
-export default TaskInputForm;
+export default connect(null,mapDispatchToProps)(TaskInputForm);

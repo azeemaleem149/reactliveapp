@@ -1,6 +1,5 @@
-import React,{useState,useEffect} from 'react';
-import {BeatLoader} from 'react-spinners';
-import { Button } from 'antd';
+import React from 'react';
+// import {BeatLoader} from 'react-spinners';
 import { Table } from 'antd';
 
 // Table Components Start from here 
