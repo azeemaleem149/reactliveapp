@@ -1,6 +1,6 @@
 import React,{useContext} from 'react';
 // import {BeatLoader} from 'react-spinners';
-import secretContext,{taskData} from '../../myContext';
+import secretContext from '../../myContext';
 import { Table } from 'antd';
 
 // Table Components Start from here 
@@ -46,8 +46,6 @@ const TableComponent = () => {
   // }
 
   const values=useContext(secretContext);
-  const values2=useContext(taskData);
-  console.log('Hi context',values2);
 
 
     // let allValues=localStorage.getItem('values');

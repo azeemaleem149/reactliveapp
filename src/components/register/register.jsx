@@ -39,14 +39,17 @@ import {
 
 
 const Register = (props) => {
+
     const [form] = Form.useForm();
 
 
     // Putting all data on Local storage 
     const onFinish = values => {
+      // contextData.SetRegistrationValues(values);
       localStorage.setItem("values",JSON.stringify(values));
       localStorage.setItem('auhenticate',"");
       props.history.push('./login');
+      
     };
   
     const prefixSelector = (
