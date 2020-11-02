@@ -1,11 +1,8 @@
-const iState={
-    values:{}
-}
+const iState='';
 const rootReducer = (state=iState,action) => {
    if(action.type==="getValues"){
-       return{
-        values:action.payload
-       }
+       return action.payload
+       
    }
    return state;
 }

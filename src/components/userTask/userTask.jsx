@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect, useRef} from 'react';
 import {Button,Modal} from 'antd';
 import { Table } from 'react-bootstrap';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {toast} from 'react-toastify';
 import './userTask.scss';
 import TaskInputForm from './taskInputForm';
@@ -11,24 +11,25 @@ const deleteNotify=()=>{
   toast.info ("Task Deleted Successfully");
 }
 
-const UserTask = (props) => {
+const UserTask = () => {
   
+  const reducerData =useSelector(state=>state);
+  // const responseRef=useRef(reducerData);
+
   useEffect(() => {
     const item=window.localStorage.getItem('previousData');
     const item1=JSON.parse(item);
     if(item1){
-      setData1(item1);
+    setData1(item1);
     }
-    // if(props){
-    // setData1(props)
-    // }
-  },[])  
-  
+  },[]);
+   
+
   // All states here 
   const [visible,setVisible]=useState(false);
   const [data1,setData1]=useState([]);
- 
- 
+
+  console.log("hi bro",...data1,reducerData);
     // Model Box Functions 
     const showModal = () => {
         setVisible(true);
@@ -40,13 +41,13 @@ const UserTask = (props) => {
           setVisible(false);
 
       }
+      
 
       // Update state with new Data function 
       const getData=(data)=>{
       let tryValue=data1.slice();
-      tryValue.push(data);
+      tryValue.push(reducerData);
       setData1(tryValue);
-      
       }
       // Delete Task function 
       const deleteFunction=(val)=>{
@@ -56,7 +57,6 @@ const UserTask = (props) => {
         deleteNotify();
       }
   
-      console.log(props);
   
     return ( 
         <div>
@@ -95,19 +95,20 @@ const UserTask = (props) => {
                     <th>Action</th>
                   </tr>  }
                 </thead>
-              
+                {data1.length>0 && 
                 <tbody>
                   
                         {data1.map(function(item,key){
                         return (<tr key={key}>
                         <td>{item.heading}</td>
                         <td>{item.date.toString()}</td>
+                        {/* <td>{String(item.date)}</td> */}
                         <td>{item.status}</td>
                         <td><Button danger onClick={()=>deleteFunction(item.heading)}>Delete</Button></td>
 
                         </tr>);
                       })}
-                </tbody>
+                </tbody>}
               </Table>
 
         {/* Table component End */}
@@ -115,12 +116,12 @@ const UserTask = (props) => {
         </div>
      );
 }
-const mapStateToProps=(state)=>{
-  return{
-    heading:state.values.heading,
-    date:state.values.date,
-    status:state.values.status
-  }
-}
+// const mapStateToProps=(state)=>{
+//   return{
+//     heading:state.values.heading,
+//     date:state.values.date,
+//     status:state.values.status
+//   }
+// }
  
-export default connect(mapStateToProps) (UserTask);
+export default  UserTask;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input,DatePicker,Select,Form, Button} from 'antd';
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {toast} from 'react-toastify';
 const { Option } = Select;
 
@@ -28,10 +28,9 @@ const TaskInputForm = (props) =>{
           if(!found){
             sendData(newValues);
             nameHeading();
-            props.changeObject(newValues);
-
-            
-            
+            dispatchData({type:'getValues',payload:newValues});
+            // props.changeObject(newValues);
+console.log('inside data',newValues);
           }}
       else return error();
       };  
@@ -39,6 +38,8 @@ const TaskInputForm = (props) =>{
       const sendData=(val)=>{
         props.sendData(val);
       }
+
+      const dispatchData = useDispatch();
 
     return ( 
         <div>
@@ -107,10 +108,10 @@ const TaskInputForm = (props) =>{
      );
     }
 
-   const mapDispatchToProps=dispatch=>{
-     return{
-       changeObject:(data)=>dispatch({type:'getValues',payload:data})
-     }
-   };
+  //  const mapDispatchToProps=dispatch=>{
+  //    return{
+  //      changeObject:(data)=>dispatch({type:'getValues',payload:data})
+  //    }
+  //  };
  
-export default connect(null,mapDispatchToProps)(TaskInputForm);
+export default TaskInputForm;

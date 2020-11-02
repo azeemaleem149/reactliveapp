@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-const secretContext = createContext();
+const localContext = createContext();
  
-export default secretContext;
+export default localContext;
