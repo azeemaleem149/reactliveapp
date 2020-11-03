@@ -1,8 +1,9 @@
-import React,{useState,useEffect, useRef} from 'react';
+import React,{useState,useEffect, useContext} from 'react';
 import {Button,Modal} from 'antd';
 import { Table } from 'react-bootstrap';
 import {useSelector} from 'react-redux';
 import {toast} from 'react-toastify';
+import localContext from '../../myContext';
 import './userTask.scss';
 import TaskInputForm from './taskInputForm';
 // import rootReducer from '../../reducers';
@@ -10,24 +11,30 @@ import TaskInputForm from './taskInputForm';
 const deleteNotify=()=>{
   toast.info ("Task Deleted Successfully");
 }
-
 const UserTask = () => {
-  
   const reducerData =useSelector(state=>state);
-  // const responseRef=useRef(reducerData);
-
+  const previousData=useContext(localContext);
+  
   useEffect(() => {
     const item=window.localStorage.getItem('previousData');
     const item1=JSON.parse(item);
     if(item1){
-    setData1(item1);
+      setData1(item1);
     }
-  },[]);
+   
+  },[reducerData]);
+  
+  
+  
+  // const responseRef=useRef(reducerData);
+
+ 
    
 
   // All states here 
   const [visible,setVisible]=useState(false);
   const [data1,setData1]=useState([]);
+  
 
   console.log("hi bro",...data1,reducerData);
     // Model Box Functions 
@@ -44,7 +51,7 @@ const UserTask = () => {
       
 
       // Update state with new Data function 
-      const getData=(data)=>{
+      const getData=()=>{
       let tryValue=data1.slice();
       tryValue.push(reducerData);
       setData1(tryValue);
@@ -101,8 +108,8 @@ const UserTask = () => {
                         {data1.map(function(item,key){
                         return (<tr key={key}>
                         <td>{item.heading}</td>
-                        <td>{item.date.toString()}</td>
-                        {/* <td>{String(item.date)}</td> */}
+                        <td>{String(item.date)}</td>
+                      
                         <td>{item.status}</td>
                         <td><Button danger onClick={()=>deleteFunction(item.heading)}>Delete</Button></td>
 

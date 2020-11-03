@@ -26,7 +26,6 @@ const TaskInputForm = (props) =>{
       if(!found){
       localStorage.setItem('previousData',JSON.stringify(previousData.concat(newValues)));
           if(!found){
-            sendData(newValues);
             nameHeading();
             dispatchData({type:'getValues',payload:newValues});
             // props.changeObject(newValues);
