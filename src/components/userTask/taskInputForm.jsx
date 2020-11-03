@@ -34,9 +34,9 @@ console.log('inside data',newValues);
       else return error();
       };  
       // Pass User Data to another component state 
-      const sendData=(val)=>{
-        props.sendData(val);
-      }
+      // const sendData=(val)=>{
+      //   props.sendData(val);
+      // }
 
       const dispatchData = useDispatch();
 
@@ -97,7 +97,7 @@ console.log('inside data',newValues);
                       </Select>
                     </Form.Item>
                     <Form.Item>
-                    <Button type="primary" htmlType="submit" className="login-form-button" onClick={props.action} onChange={props.sendData}>
+                    <Button type="primary" htmlType="submit" className="login-form-button" onClick={props.action}>
                     Add Task
                     </Button>                   
                     </Form.Item>

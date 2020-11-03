@@ -86,7 +86,7 @@ const UserTask = () => {
                 onCancel={handleCancel}
                 footer={null}
                 >
-                <TaskInputForm action={handler} sendData={getData} />
+                <TaskInputForm action={handler} onLoad={getData} />
             </Modal>
         
         {/* Table component start */}
