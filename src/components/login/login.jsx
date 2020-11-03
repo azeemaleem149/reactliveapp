@@ -10,8 +10,8 @@ import "./login.scss";
 const error=()=>{
   toast.error ("Please Correct your Information");
 }
-const success=()=>{
-  toast.info ("Welcome to our Platform !");
+const success=(name)=>{
+  toast.info (`Welcome ${name} !`);
 }
 
 // Login Component Start from here 
@@ -28,7 +28,7 @@ console.log('i am useEffect',credentials);
   const onFinish = (values) => {
     // let entry=localStorage.getItem('values');   /*  Fetching data from local storage */
     // let entryJson=JSON.parse(entry);
-
+    let nickname=credentials.nickname;
     let storageUsername=credentials.email;
     let storagePassword=credentials.password;
 
@@ -36,7 +36,7 @@ console.log('i am useEffect',credentials);
   
 
       values.username===storageUsername && values.password===storagePassword ? localStorage.setItem('auhenticate',true): error();
-      values.username===storageUsername && values.password===storagePassword && props.history.push('/'); success();  //two actions performs on one condition
+      values.username===storageUsername && values.password===storagePassword && props.history.push('/'); success(nickname);  //two actions performs on one condition
     
 
     }
