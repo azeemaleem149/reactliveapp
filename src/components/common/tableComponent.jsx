@@ -37,7 +37,7 @@ const TableComponent = () => {
       name,
       email,
       phone,
-      password1: password,
+      password,
     },
   ];
 
