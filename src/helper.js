@@ -12,18 +12,3 @@ const Helper = (value) => {
   }
 };
 export default Helper;
-
-// const Helper1 = () => {
-//   const user = localStorage.getItem("auhenticate");
-//   return user;
-// };
-
-// const Helper2 = () => {
-//   let entry = JSON.parse(localStorage.getItem("values"));
-//   return entry;
-// };
-// const Helper3 = () => {
-//   let previousData = JSON.parse(localStorage.getItem("previousData"));
-//   return previousData;
-// };
-// export { Helper1, Helper2, Helper3 };
