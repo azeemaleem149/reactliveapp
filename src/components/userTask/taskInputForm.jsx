@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Input, DatePicker, Select, Form, Button } from "antd";
-import { Helper2 } from "../../helper";
+import Helper from "../../helper";
 import { taskData } from "../../myContext";
 
 import { toast } from "react-toastify";
@@ -22,7 +22,7 @@ const TaskInputForm = (props) => {
   const onFinish = (values) => {
     form.resetFields();
     let newValues = values;
-    let previousData = Helper2() || [];
+    let previousData = Helper(2) || [];
     const found = previousData.some((e) => e.heading === newValues.heading);
     if (!found) {
       localStorage.setItem(

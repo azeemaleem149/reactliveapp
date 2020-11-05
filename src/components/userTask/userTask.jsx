@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Button, Modal } from "antd";
 import { taskData } from "../../myContext";
-import { Helper2 } from "../../helper";
+import Helper from "../../helper";
 import { Table } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "./userTask.scss";
@@ -16,7 +16,7 @@ const UserTask = () => {
   const comingData = useContext(taskData);
 
   useEffect(() => {
-    const item = Helper2();
+    const item = Helper(2);
     if (item) {
       setData1(item);
     }

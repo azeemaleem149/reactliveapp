@@ -13,6 +13,9 @@ const error = () => {
 const success = (name) => {
   toast.info(`Welcome ${name} !`);
 };
+const warn = () => {
+  toast.error("Email or password is not registered");
+};
 
 // Login Component Start from here
 const Login = (props) => {
@@ -21,6 +24,7 @@ const Login = (props) => {
   useEffect(() => {}, [credentials]);
 
   const onFinish = (values) => {
+    credentials == null && warn();
     let nickname = credentials.nickname;
     let storageUsername = credentials.email;
     let storagePassword = credentials.password;
