@@ -1,20 +1,12 @@
-import React from 'react';
-import { Layout } from 'antd';
-import './footerComponent.scss';
-const {  Footer } = Layout;
-
+import React from "react";
+import "./footerComponent.scss";
 
 const FooterComponent = () => {
-    return ( 
-        <div className='footer'>
-            <p>©2020 Developed by Azeem Aleem</p>
-            {/* <Layout className="layout">
-                
-                 <Footer style={{ textAlign: 'center',position:'fixed', width:'100%'}}>©2020 Developed by Azeem Aleem</Footer>
-             
-             </Layout> */}
-        </div>
-     );
-}
- 
+  return (
+    <div className="footer">
+      <p>©2020 Developed by Azeem Aleem</p>
+    </div>
+  );
+};
+
 export default FooterComponent;

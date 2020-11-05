@@ -1,117 +1,116 @@
-import React from 'react';
-import { Input,DatePicker,Select,Form, Button} from 'antd';
-import {toast} from 'react-toastify';
+import React from "react";
+import { Input, DatePicker, Select, Form, Button } from "antd";
+import Helper from "../../helper";
+import { toast } from "react-toastify";
 const { Option } = Select;
 
+// React Toastify Error
+const error = () => {
+  toast.error("Choose another Name");
+};
+const nameHeading = () => {
+  toast.success("Your Task Added Successfully");
+};
 
-// React Toastify Error 
-const error=()=>{
-  toast.error ("Choose another Name");
-}
-const nameHeading=()=>{
-  toast.success ("Your Task Added Successfully");
-}
-
-const TaskInputForm = (props) =>{
+const TaskInputForm = (props) => {
   const [form] = Form.useForm();
 
-  // Getting All data from user input forms here 
-      const onFinish=(values)=>{
-      form.resetFields();
-      let newValues=values;
-      let previousData=JSON.parse(localStorage.getItem('previousData')) || [];
-      const found=previousData.some(e=>e.heading===newValues.heading);
-      if(!found){
-      localStorage.setItem('previousData',JSON.stringify(previousData.concat(newValues)));
-          if(!found){
-            sendData(newValues);
-            nameHeading();
-          }}
-      else return error();
-      
-
-      };  
-
-      // Pass User Data to another component state 
-      const sendData=(val)=>{
-        props.sendData(val);
+  // Getting All data from user input forms here
+  const onFinish = (values) => {
+    form.resetFields();
+    let newValues = values;
+    let previousData = Helper(3) || [];
+    const found = previousData.some((e) => e.heading === newValues.heading);
+    if (!found) {
+      localStorage.setItem(
+        "previousData",
+        JSON.stringify(previousData.concat(newValues))
+      );
+      if (!found) {
+        sendData(newValues);
+        nameHeading();
       }
-      
+    } else return error();
+  };
 
-    return ( 
-        <div>
-          {/* Task Input Form Start here  */}
-              <Form
-                form={form}
-                name="normal_login"
-                className="login-form"
-                initialValues={{
-                remember: true,
-                }}
-            
-                
-                onFinish={onFinish} >
-                    <Form.Item
-                    name="heading"
-                    rules={[
-                        {
-                        required: true,
-                        message: 'Please Write Task Heding!',
-                        },
-                    ]} 
-                    >
-                      <Input placeholder="Task Heading" />
-                    </Form.Item>
-                    <Form.Item
-                    name="date"
-                    rules={[
-                        {
-                        required: true,
-                        message: 'Please select Date',
-                        },
-                    ]}    
-                    >
-                    <DatePicker />
-                    </Form.Item>
-                    <Form.Item
-                    name="status"
-                    rules={[
-                        {
-                        required: true,
-                        message: 'Whats Status of your Task',
-                        },
-                    ]}    
-                    > 
-                      <Select
-                      
-                        style={{ width: 200 }}
-                        placeholder="Status of Task"
-                        optionFilterProp="children"
-                        filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0} 
-                        >
-                            <Option value="Pending">Pending</Option>
-                            <Option value="Done">Done</Option>
-                            <Option value="Not Started">Not Started yet</Option>
-                            
-                      </Select>
-                  
+  // Pass User Data to another component state
+  const sendData = (val) => {
+    props.sendData(val);
+  };
 
-                    </Form.Item>
-    
-                    <Form.Item>
-                    <Button type="primary" htmlType="submit" className="login-form-button" onClick={props.action} onChange={props.sendData}>
-                    Add Task
-                    </Button>
-                    
-                    </Form.Item>
-                    </Form>
+  return (
+    <div>
+      {/* Task Input Form Start here  */}
+      <Form
+        form={form}
+        name="normal_login"
+        className="login-form"
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
+      >
+        <Form.Item
+          name="heading"
+          rules={[
+            {
+              required: true,
+              message: "Please Write Task Heding!",
+            },
+          ]}
+        >
+          <Input placeholder="Task Heading" />
+        </Form.Item>
+        <Form.Item
+          name="date"
+          rules={[
+            {
+              required: true,
+              message: "Please select Date",
+            },
+          ]}
+        >
+          <DatePicker />
+        </Form.Item>
+        <Form.Item
+          name="status"
+          rules={[
+            {
+              required: true,
+              message: "Whats Status of your Task",
+            },
+          ]}
+        >
+          <Select
+            style={{ width: 200 }}
+            placeholder="Status of Task"
+            optionFilterProp="children"
+            filterOption={(input, option) =>
+              option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+            }
+          >
+            <Option value="Pending">Pending</Option>
+            <Option value="Done">Done</Option>
+            <Option value="Not Started">Not Started yet</Option>
+          </Select>
+        </Form.Item>
 
-          {/* Task Input Form End here  */}
+        <Form.Item>
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="login-form-button"
+            onClick={props.action}
+            onChange={props.sendData}
+          >
+            Add Task
+          </Button>
+        </Form.Item>
+      </Form>
 
-        
-        
-        </div>
-     );
-                        }
- 
+      {/* Task Input Form End here  */}
+    </div>
+  );
+};
+
 export default TaskInputForm;
