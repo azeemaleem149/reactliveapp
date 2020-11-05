@@ -1,6 +1,6 @@
 import React from "react";
 import { Input, DatePicker, Select, Form, Button } from "antd";
-import { Helper2 } from "../../helper";
+import Helper from "../../helper";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 const { Option } = Select;
@@ -20,7 +20,7 @@ const TaskInputForm = (props) => {
   const onFinish = (values) => {
     form.resetFields();
     let newValues = values;
-    const helperData = Helper2();
+    const helperData = Helper(2);
     let previousData = helperData || [];
     const found = previousData.some((e) => e.heading === newValues.heading);
     if (!found) {

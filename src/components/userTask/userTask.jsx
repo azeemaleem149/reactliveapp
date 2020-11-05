@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
 import { Table } from "react-bootstrap";
-import { Helper2 } from "../../helper";
+import Helper from "../../helper";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "./userTask.scss";
@@ -14,7 +14,7 @@ const UserTask = () => {
   const reducerData = useSelector((state) => state);
 
   useEffect(() => {
-    const item = Helper2();
+    const item = Helper(2);
     if (item) {
       setData1(item);
     }

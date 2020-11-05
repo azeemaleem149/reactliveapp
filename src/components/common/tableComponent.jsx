@@ -1,10 +1,10 @@
 import React from "react";
-import { Helper1 } from "../../helper";
+import Helper from "../../helper";
 import { Table } from "antd";
 
 // Table Components Start from here
 const TableComponent = () => {
-  const HelperData = Helper1();
+  const HelperData = Helper(1);
   let name = HelperData.nickname;
   let email = HelperData.email;
   let phone = HelperData.phone;

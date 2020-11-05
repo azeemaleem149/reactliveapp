@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { Helper1 } from "../../helper";
+import Helper from "../../helper";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "./login.scss";
@@ -14,10 +14,15 @@ const error = () => {
 const success = (name) => {
   toast.info(`Welcome ${name}!`);
 };
+const warn = () => {
+  toast.error("Email or password is not registered");
+};
+
 // Login Component Start from here
 const Login = (props) => {
   const onFinish = (values) => {
-    const HelperData = Helper1();
+    const HelperData = Helper(1);
+    HelperData == null && warn();
     let nickname = HelperData.nickname;
     let previousName = HelperData.email;
     let previousPassword = HelperData.password;
